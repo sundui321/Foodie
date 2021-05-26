@@ -1,5 +1,5 @@
 import React from "react";
-import "./AppLayout.css";
+import "./AppLayout.scss";
 //import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImages, faSearch } from "@fortawesome/free-solid-svg-icons";
