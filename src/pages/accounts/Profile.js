@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "components/AppLayout.scss";
+import "components/AppLayout.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAddressCard, faHome, faSignOutAlt, faUtensils, faEdit, faCarrot, faDrumstickBite, faPepperHot, faAppleAlt, faHamburger, faPizzaSlice, faBreadSlice, faIceCream, faFish, faStroopwafel } from "@fortawesome/free-solid-svg-icons";

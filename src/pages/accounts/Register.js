@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
-import "components/Login.scss";
+import "components/Login.css";
 import { motion } from "framer-motion";
 import axios from 'axios';
 import swal from 'sweetalert';
