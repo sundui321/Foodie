@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import Home from "./Home";
 import Login from "./accounts/Login"
 import AccountRoutes from "./accounts";
-import RandomMeal from "./RandomMeal";
+import RandomMeal from "./RandomMeal.js";
 
 
 function Root() {

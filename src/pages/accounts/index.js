@@ -1,9 +1,9 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Profile from "./Profile";
-import Login from "./Login";
-import Register from "./Register";
-import loggedHome from "./loggedHome";
+import Profile from "./Profile.js";
+import Login from "./Login.js";
+import Register from "./Register.js";
+import loggedHome from "./loggedHome.js";
 import {AnimatePresence} from "framer-motion";
 
 function Routes() {

@@ -1,5 +1,5 @@
 import React from "react";
-import AppLayout from "components/AppLayout";
+import AppLayout from "components/AppLayout.js";
 import "components/AppLayout.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faUsers, faUtensils } from "@fortawesome/free-solid-svg-icons";
