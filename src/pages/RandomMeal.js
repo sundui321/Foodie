@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import "components/AppLayout.scss";
+//import "components/AppLayout.scss";
 //import { Link } from "react-router-dom";
+import "./random.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAddressCard, faHome, faSignOutAlt, faUtensils } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
