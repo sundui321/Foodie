@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "components/AppLayout.scss";
+import "../components/AppLayout.scss";
 //import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAddressCard, faHome, faSignOutAlt, faUtensils } from "@fortawesome/free-solid-svg-icons";
-import AppLayout from "components/AppLayout.js"
+import AppLayout from "../components/AppLayout.js"
 import { motion } from "framer-motion";
 import store from "store";
 import axios from 'axios';
