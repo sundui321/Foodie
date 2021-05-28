@@ -8,13 +8,11 @@ import swal from 'sweetalert';
 
 class Register extends React.Component {
     
-
-
     constructor(props) {
         super(props)
 
         this.state = {
-            UserID:'', UserPW:'',
+            username:'', password:'', email:'', checkpassword:''
         }
     }
 
@@ -25,7 +23,7 @@ class Register extends React.Component {
     register_request = e => {
         e.preventDefault();
         console.log(this.state);
-        axios.post('http://127.0.0.1:8000/users/', this.state)
+        axios.post('http://127.0.0.1:8000/api/users/', this.state)
         .then(
             (response) => {
                 console.log(response);
@@ -45,7 +43,7 @@ class Register extends React.Component {
                 else if(this.state.UserPW.length === 0) {
                     swal("비밀번호를 입력해주세요!", "", "warning");
                 }
-               /*  else if(this.state.email.length === 0) {
+                else if(this.state.email.length === 0) {
                     swal("이메일을 입력해주세요!", "", "warning");
                 }
                 else if(this.state.checkpassword.length === 0) {
@@ -59,7 +57,7 @@ class Register extends React.Component {
                 }
                 else {
                     swal("사용불가능한 ID입나다!", "", "warning");
-                } */
+                }
             }
         )
     }
@@ -72,17 +70,17 @@ class Register extends React.Component {
                     <motion.div className="content" initial={{opacity:0}} animate={{opacity:1}} transition={{duration:1}}>
                         <div className="form" >
                             <div className="form-group">
-                                <input type="text" name="UserID" placeholder="사용자ID" value={this.state.UserID} onChange={this.inputChanged}/>
+                                <input type="text" name="username" placeholder="사용자ID" value={this.state.UserID} onChange={this.inputChanged}/>
                             </div>
                             <div className="form-group">
-                                <input type="password" name="UserPW" placeholder="비밀번호" value={this.state.UserPW} onChange={this.inputChanged}/>
+                                <input type="password" name="password" placeholder="비밀번호" value={this.state.UserPW} onChange={this.inputChanged}/>
                             </div>
-                            {/* <div className="form-group">
+                            <div className="form-group">
                                 <input type="password" name="checkpassword" placeholder="비밀번호 확인" value={this.state.checkpassword} onChange={this.inputChanged} />
-                            </div> */}
-                            {/* <div className="form-group">
+                            </div>
+                            <div className="form-group">
                                 <input type="text" name="email" placeholder="이메일" value={this.state.email} onChange={this.inputChanged}/>
-                            </div> */}
+                            </div>
                             <div className="form-group">
                                 <button type="button" className="btn" onClick={this.register_request} >가입하기</button>
                             </div>

@@ -24,13 +24,11 @@ class Login extends React.Component {
         e.preventDefault();
         console.log(this.state);
        
-        axios.get('http://127.0.0.1:8000/users/', this.state).then(
+        axios.get('http://127.0.0.1:8000/auth/', this.state).then(
             (response) => {
                 console.log(response);
                 if(response.data.token.length > 0) {
-                    swal("로그인되었습니다.", "", "success")/* .then((result) => {
-                        window.location.href = `/accounts/loggedhome/`
-                    }) */;
+                    swal("로그인되었습니다.", "", "success");
                     store.set('userID', this.state.username);
                     history.push('accounts/loggedhome/');
                 }
