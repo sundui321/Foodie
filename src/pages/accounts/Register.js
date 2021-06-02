@@ -1,13 +1,31 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../components/Login.scss";
+import "../../components/Login.scss";
 import { motion } from "framer-motion";
 import axios from 'axios';
 import swal from 'sweetalert';
 
 
+function CreateProfile(username) {
+    const [data, setData] = useState('');
+    let allergy = '';
+    let like = '';
+    let hate = '';
+    setData(username);
+    setData(allergy);
+    setData(like);
+    setData(hate);
+    axios.post('http://127.0.0.1:8000/api/profile/', data).then(
+        (response) => {
+            console.log(response);
+        }
+    )
+}
+
 class Register extends React.Component {
     
+
+
     constructor(props) {
         super(props)
 
@@ -28,19 +46,20 @@ class Register extends React.Component {
             (response) => {
                 console.log(response);
                 if(response.status) {
+                    CreateProfile(this.response.username);
                     swal("가입되었습니다.", "로그인화면으로 이동합니다.", "success",
                         {button: "로그인"}).then((result) => {
-                            window.location.href = `/accounts/login/`
+                            window.location.href = `/`
                         });
                 }
             }
         )
         .catch (
             (error) => {
-                if(this.state.UserID.length === 0) {
+                if(this.state.username.length === 0) {
                     swal("사용자ID를 입력해주세요!", "", "warning");
                 }
-                else if(this.state.UserPW.length === 0) {
+                else if(this.state.password.length === 0) {
                     swal("비밀번호를 입력해주세요!", "", "warning");
                 }
                 else if(this.state.email.length === 0) {
@@ -70,23 +89,23 @@ class Register extends React.Component {
                     <motion.div className="content" initial={{opacity:0}} animate={{opacity:1}} transition={{duration:1}}>
                         <div className="form" >
                             <div className="form-group">
-                                <input type="text" name="username" placeholder="사용자ID" value={this.state.UserID} onChange={this.inputChanged}/>
+                                <input type="text" name="username" placeholder="사용자ID" value={this.state.username} onChange={this.inputChanged}/>
                             </div>
                             <div className="form-group">
-                                <input type="password" name="password" placeholder="비밀번호" value={this.state.UserPW} onChange={this.inputChanged}/>
+                                <input type="password" name="password" placeholder="비밀번호" value={this.state.password} onChange={this.inputChanged}/>
                             </div>
-                            <div className="form-group">
+                            {<div className="form-group">
                                 <input type="password" name="checkpassword" placeholder="비밀번호 확인" value={this.state.checkpassword} onChange={this.inputChanged} />
-                            </div>
-                            <div className="form-group">
+                            </div>}
+                            {<div className="form-group">
                                 <input type="text" name="email" placeholder="이메일" value={this.state.email} onChange={this.inputChanged}/>
-                            </div>
+                            </div>}
                             <div className="form-group">
                                 <button type="button" className="btn" onClick={this.register_request} >가입하기</button>
                             </div>
                             <div className="form-group">
                                 <div className="goto-log">
-                                        <Link to="/accounts/login" >로그인</Link>
+                                        <Link to="/" >로그인</Link>
                                 </div>
                             </div>
                         </div>

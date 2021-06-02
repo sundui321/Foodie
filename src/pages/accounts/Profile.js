@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import "../components/AppLayout.scss";
+import React, {useState, useEffect} from "react";
+import "../../components/AppLayout.scss";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAddressCard, faHome, faSignOutAlt, faUtensils, faEdit, faCarrot, faDrumstickBite, faPepperHot, faAppleAlt, faHamburger, faPizzaSlice, faBreadSlice, faIceCream, faFish, faStroopwafel } from "@fortawesome/free-solid-svg-icons";
@@ -12,25 +12,19 @@ import store from "store";
 function Profile( {history} ) {
     
     const [data, setData] = useState("");
+    let userID = '';
 
-    const getData = () => {
+    useEffect(() => {
         axios.get(`http://127.0.0.1:8000/api/users/${store.get('userID')}`).then(
             (response) => {
                 setData(response.data);
             }
         )
-    
-    }
-    
-    window.onload = function() {
-        var button = document.getElementById("data_button");
-        setInterval(function() {
-            button.click();
-        }, 500);
-    }
+    },[])
 
     const logoutHandle = () => {
         store.remove('userID');
+        store.remove('username');
         history.push('/');
     }
 
@@ -85,9 +79,6 @@ function Profile( {history} ) {
                         <li><FontAwesomeIcon icon={faStroopwafel} size="2x" opacity="0.8"/></li>
                     </ul>
                 </div>
-                    <div className="inf-group">
-                        <button type="button" id="data_button" onClick={getData}> OK </button>
-                    </div>
                     <div className="inf-group">유저 네임: 
                         <input type="text" className="input-inf" value={data.username} contentEditable="false"/>
                         <button type="button" className="edtBtn"><FontAwesomeIcon icon={faEdit} size="1x"/></button>

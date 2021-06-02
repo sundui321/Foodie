@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import "./components/AppLayout.scss";
+import "../components/AppLayout.scss";
 //import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAddressCard, faHome, faSignOutAlt, faUtensils } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
+import store from "store";
+
 const API_URL = 'https://www.themealdb.com/api/json/v1/1/random.php';
 
-const RandomMeal = () => {
+
+const RandomMeal = ({history}) => {
     const [meal, setMeal] = useState(undefined);
     
-    useEffect(() => {
-       // fetch(API_URL)
-        //.then((res) => res.json())
-        //.then((res)=> {
-          //  setMeal(res.meals[0]);
-        //})  
+    useEffect(() => {  
         async function getMeal() {
             const res = await fetch(API_URL);
             const data = await res.json();
@@ -25,6 +23,22 @@ const RandomMeal = () => {
         getMeal();
     }, [])
 
+    useEffect(() => {
+        return () => {
+            if(history.action === "POP") {
+                history.goBack();
+            }
+        }
+    })
+
+    const homeHandle = () => {
+        if(store.get('userID') !== null) {
+            history.replace('/accounts/loggedhome');
+        }
+        else {
+            history.replace('/home');
+        }
+    }
     
     if(!meal) return null;
 
@@ -48,21 +62,21 @@ const RandomMeal = () => {
                 transitionEnd: { display: "1"}}} 
             transition={{duration: 2}}>
             <div className="prof-title">
-                <a href="/accounts/loggedhome">Foodie</a>
+                <button >Foodie</button>
             </div>
             <div className="prof-menu">
-                <a href="/accounts/loggedhome" className="home">
+                <button className="home" onClick={homeHandle}>
                     <FontAwesomeIcon className="icon" icon={faHome} size="lg"/>홈
-                </a>
-                <a href="/home" className="reccomend">
+                </button>
+                <button className="reccomend">
                     <FontAwesomeIcon className="icon" icon={faUtensils} size="lg"/>음식 추천
-                </a>
-                <a href="/accounts/profile" className="profile">
+                </button>
+                <button className="profile">
                     <FontAwesomeIcon className="icon" icon={faAddressCard} size="lg"/>회원정보
-                </a>
-                <a href="/" className="logout">
+                </button>
+                <button className="logout">
                     <FontAwesomeIcon className="icon" icon={faSignOutAlt} size="lg"/>로그아웃
-                </a>
+                </button>
             </div>
             <div className="recom-content">
                 <div className="meal-img">

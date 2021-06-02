@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import "../components/AppLayout.scss";
+import React, { useState, useEffect } from "react";
+import "../../components/AppLayout.scss";
 //import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAddressCard, faHome, faSignOutAlt, faUtensils } from "@fortawesome/free-solid-svg-icons";
-import AppLayout from "../components/AppLayout.js"
+import AppLayout from "../../components/AppLayout.js"
 import { motion } from "framer-motion";
 import store from "store";
 import axios from 'axios';
@@ -18,7 +18,7 @@ function LoggedHome({ history }) {
             (response) => {
                 setData(response.data);
                 let index=0;
-                while(response.data[index].username !== store.get('userID')) {
+                while(response.data[index].username !== store.get('username')) {
                     index++;
                 }
                 userID = response.data[index].id;
@@ -27,7 +27,10 @@ function LoggedHome({ history }) {
         )
     }
 
+    
+
     const logoutHandle = () => {
+        store.remove('username');
         store.remove('userID');
         history.push('/');
     }
@@ -35,6 +38,10 @@ function LoggedHome({ history }) {
     const profileHandle = () => {
         getID();       
         history.replace('/accounts/profile/');
+    }
+
+    const recomHandle = () => {
+        history.replace('/randommeal');
     }
 
     return (
@@ -45,7 +52,7 @@ function LoggedHome({ history }) {
                         <button className="home">
                             <FontAwesomeIcon className="icon" icon={faHome} size="lg"/>홈
                         </button>
-                        <button className="reccomend">
+                        <button className="reccomend" onClick={recomHandle}>
                             <FontAwesomeIcon className="icon" icon={faUtensils} size="lg"/>음식 추천
                         </button>
                         <button className="profile" onClick={profileHandle}>

@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../components/Login.scss";
+import "../../components/Login.scss";
 import { motion } from "framer-motion";
 import axios from 'axios';
 import swal from "sweetalert";
+import { history } from "react-router-dom";
 import store from "store";
 
 class Login extends React.Component {
@@ -11,7 +12,7 @@ class Login extends React.Component {
         super(props)
 
         this.state = {
-            username:'', password:'', token:'',
+            username:'', password:'', token:'', id:''
         }
     }
 
@@ -24,13 +25,24 @@ class Login extends React.Component {
         e.preventDefault();
         console.log(this.state);
        
-        axios.get('http://127.0.0.1:8000/auth/', this.state).then(
+        axios.post('http://127.0.0.1:8000/auth/', this.state).then(
             (response) => {
                 console.log(response);
                 if(response.data.token.length > 0) {
                     swal("로그인되었습니다.", "", "success");
-                    store.set('userID', this.state.username);
-                    history.push('accounts/loggedhome/');
+                    store.set('username', this.state.username);
+                    
+                    axios.get('http://127.0.0.1:8000/api/users/').then(
+                            (response) => {
+                                let index=0;
+                                while(response.data[index].username !== store.get('username')) {
+                                    index++;
+                                }
+                                store.set('userID', response.data[index].id);            
+                            }
+                        )
+
+                    history.push('/accounts/loggedhome/');
                 }
             }
         )
