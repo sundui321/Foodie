@@ -46,7 +46,6 @@ class Register extends React.Component {
             (response) => {
                 console.log(response);
                 if(response.status) {
-                    CreateProfile(this.response.username);
                     swal("가입되었습니다.", "로그인화면으로 이동합니다.", "success",
                         {button: "로그인"}).then((result) => {
                             window.location.href = `/`
