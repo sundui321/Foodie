@@ -26,7 +26,7 @@ function AppLayout({children}) {
     const foodsearch = () => {
         
         console.log(data);
-        axios.post("http://13.209.208.168:8000/Search", data).then(
+        axios.post("https://127.0.0.1:8000/Search", data).then(
             (response) => {
                 console.log(response.data);
                 setFood1(response.data[0]);

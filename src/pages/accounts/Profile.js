@@ -15,7 +15,7 @@ function Profile( {history} ) {
     let userID = '';
 
     useEffect(() => {
-        axios.get(`http://13.209.208.168:8000/users/${store.get('userID')}`).then(
+        axios.get(`https://127.0.0.1:8000/users/${store.get('userID')}`).then(
             (response) => {
                 setData(response.data);
             }
@@ -51,7 +51,7 @@ function Profile( {history} ) {
         }).then((value) => {
             switch(value) {
                 case "yes":
-                    axios.delete(`http://13.209.208.168:8000/users/${store.get('userID')}`).then(
+                    axios.delete(`https://127.0.0.1:8000/users/${store.get('userID')}`).then(
                         (response) => {
                             swal("회원정보가 삭제되었습니다.", "로그인 화면으로 이동합니다.", "success",
                             {button: "OK"}).then((result) => {

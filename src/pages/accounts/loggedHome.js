@@ -14,7 +14,7 @@ function LoggedHome({ history }) {
     let userID = '';
 
     const getID = () => {
-        axios.get('http://13.209.208.168:8000/users/').then(
+        axios.get('https://127.0.0.1:8000/users/').then(
             (response) => {
                 setData(response.data);
                 let index=0;

@@ -25,7 +25,7 @@ class Register extends React.Component {
     register_request = e => {
         e.preventDefault();
         console.log(this.state);
-        axios.post('http://13.209.208.168:8000/users/', this.state)
+        axios.post('https://127.0.0.1:8000/users/', this.state)
         .then(
             (response) => {
                 if(response.status) {
@@ -33,7 +33,7 @@ class Register extends React.Component {
                         {button: "로그인"}).then((result) => {
                             window.location.href = `/`
                         });
-                    axios.post("http://13.209.208.168:8000/profile/", this.state.username);
+                    axios.post("https://127.0.0.1:8000/profile/", this.state.username);
                 }
             }
         )
