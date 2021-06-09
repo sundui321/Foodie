@@ -1,10 +1,9 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import Home from "./Home";
-import Login from "./accounts/Login"
+import Home from "./Home.js";
+import Login from "./accounts/Login.js"
 import AccountRoutes from "./accounts";
 import RandomMeal from "./RandomMeal.js";
-
 
 function Root() {
     return (

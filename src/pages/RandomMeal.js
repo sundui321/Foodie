@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAddressCard, faHome, faSignOutAlt, faUtensils } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import store from "store";
+import swal from 'sweetalert';
 
 const API_URL = 'https://www.themealdb.com/api/json/v1/1/random.php';
 
@@ -16,30 +17,40 @@ const RandomMeal = ({history}) => {
         async function getMeal() {
             const res = await fetch(API_URL);
             const data = await res.json();
-    
+            
             setMeal(data.meals[0]);
         }  
 
         getMeal();
     }, [])
 
-    useEffect(() => {
-        return () => {
-            if(history.action === "POP") {
-                history.goBack();
-            }
-        }
-    })
-
     const homeHandle = () => {
-        if(store.get('userID') !== null) {
-            history.replace('/accounts/loggedhome');
+        if(store.get('userID') === -1) {
+            history.replace('/home');
         }
         else {
-            history.replace('/home');
+            history.replace('/accounts/loggedhome');
         }
     }
     
+    
+
+    const profileHandle = () => {
+        if(store.get('userID') === -1) {
+            swal("로그인 되어 있지 않습니다.", "", "warning");
+        }
+        else {
+            history.replace('/accounts/profile');
+        }
+    }
+
+    const logoutHandle = () => {
+        store.remove('userID');
+        store.remove('username');
+        history.replace('/');
+    }
+    
+
     if(!meal) return null;
 
     const {
@@ -71,10 +82,10 @@ const RandomMeal = ({history}) => {
                 <button className="reccomend">
                     <FontAwesomeIcon className="icon" icon={faUtensils} size="lg"/>음식 추천
                 </button>
-                <button className="profile">
+                <button className="profile" onClick={profileHandle}>
                     <FontAwesomeIcon className="icon" icon={faAddressCard} size="lg"/>회원정보
                 </button>
-                <button className="logout">
+                <button className="logout" onClick={logoutHandle}>
                     <FontAwesomeIcon className="icon" icon={faSignOutAlt} size="lg"/>로그아웃
                 </button>
             </div>

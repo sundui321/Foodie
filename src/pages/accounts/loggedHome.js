@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../../components/AppLayout.scss";
 //import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,7 +14,7 @@ function LoggedHome({ history }) {
     let userID = '';
 
     const getID = () => {
-        axios.get('http://127.0.0.1:8000/api/users/').then(
+        axios.get('http://13.209.208.168:8000/users/').then(
             (response) => {
                 setData(response.data);
                 let index=0;

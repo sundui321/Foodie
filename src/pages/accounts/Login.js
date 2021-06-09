@@ -4,7 +4,6 @@ import "../../components/Login.scss";
 import { motion } from "framer-motion";
 import axios from 'axios';
 import swal from "sweetalert";
-import { history } from "react-router-dom";
 import store from "store";
 
 class Login extends React.Component {
@@ -25,14 +24,14 @@ class Login extends React.Component {
         e.preventDefault();
         console.log(this.state);
        
-        axios.post('http://127.0.0.1:8000/auth/', this.state).then(
+        axios.post('http://13.209.208.168:8000/auth/', this.state).then(
             (response) => {
                 console.log(response);
                 if(response.data.token.length > 0) {
                     swal("로그인되었습니다.", "", "success");
                     store.set('username', this.state.username);
                     
-                    axios.get('http://127.0.0.1:8000/api/users/').then(
+                    axios.get('http://13.209.208.168:8000/users/').then(
                             (response) => {
                                 let index=0;
                                 while(response.data[index].username !== store.get('username')) {
@@ -42,7 +41,7 @@ class Login extends React.Component {
                             }
                         )
 
-                    history.push('/accounts/loggedhome/');
+                    history.push('accounts/loggedhome');
                 }
             }
         )

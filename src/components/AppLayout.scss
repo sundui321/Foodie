@@ -1,3 +1,404 @@
+.search-container {
+    background-color: "#2196f3";
+    position: relative;
+    top: 20px;
+    right: 10px;
+    height: 780px;
+    width: 800px;
+    border: none;
+    border-radius: 15px;
+    
+    .food-searched1 {
+        position: relative;
+        background-color: #e5e4e2;
+        top: 10px;
+        left: 10px;
+        width: 780px;
+        border: none;
+        border-radius: 10px;
+        font-family: "Nanum Pen Script", cursive;
+        font-size: 30px;
+        height: 140px;
+
+        .foodname1 {
+            position: relative;
+            top: 10px;
+            left: 80px;
+            font-size: 40px;
+            font-weight: 800;
+        }
+        .food1-ing {
+            position: absolute;
+            top: 20px;
+            left: 80px;
+        }
+    }
+
+    .food-searched2 {
+        position: relative;
+        background-color: #e5e4e2;
+        top: -15px;
+        left: 10px;
+        width: 780px;
+        border: none;
+        border-radius: 10px;
+        font-family: "Nanum Pen Script", cursive;
+        font-size: 30px;
+        height: 140px;
+
+        .foodname2 {
+            position: relative;
+            top: 10px;
+            left: 80px;
+            font-size: 40px;
+            font-weight: 800;
+        }
+        .food2-ing {
+            position: absolute;
+            top: 20px;
+            left: 80px;
+        }
+    }
+
+    .food-searched3 {
+        position: relative;
+        background-color: #e5e4e2;
+        top: -40px;
+        left: 10px;
+        width: 780px;
+        border: none;
+        border-radius: 10px;
+        font-family: "Nanum Pen Script", cursive;
+        font-size: 30px;
+        height: 140px;
+
+        .foodname3 {
+            position: relative;
+            top: 10px;
+            left: 80px;
+            font-size: 40px;
+            font-weight: 800;
+        }
+        .food3-ing {
+            position: absolute;
+            top: 20px;
+            left: 80px;
+        }
+    }
+
+    .food-searched4 {
+        position: relative;
+        background-color: #e5e4e2;
+        top: -65px;
+        left: 10px;
+        width: 780px;
+        border: none;
+        border-radius: 10px;
+        font-family: "Nanum Pen Script", cursive;
+        font-size: 30px;
+        height: 140px;
+
+        .foodname4 {
+            position: relative;
+            top: 10px;
+            left: 80px;
+            font-size: 40px;
+            font-weight: 800;
+        }
+        .food4-ing {
+            position: absolute;
+            top: 20px;
+            left: 80px;
+        }
+    }
+
+    .food-searched5 {
+        position: relative;
+        background-color: #e5e4e2;
+        top: -90px;
+        left: 10px;
+        width: 780px;
+        border: none;
+        border-radius: 10px;
+        font-family: "Nanum Pen Script", cursive;
+        font-size: 30px;
+        height: 140px;
+
+        .foodname5 {
+            position: relative;
+            top: 10px;
+            left: 80px;
+            font-size: 40px;
+            font-weight: 800;
+        }
+        .food5-ing {
+            position: absolute;
+            top: 20px;
+            left: 80px;
+        }
+    }
+}
+
+.food-container1 {
+    position: absolute;
+    top: -80px;
+    left: -1400px;
+    height: 700px;
+    width: 800px;
+    background-color:#f44336;
+    border: none;
+    border-radius: 15px;
+    
+
+    .food-contents1 {
+        
+        .foodname1 {
+            background-color: transparent;
+            border: none;
+            font-family: "Nanum Pen Script", cursive;
+            font-size: 55px;
+            position: relative;
+            right: -500px;
+            top: -30px;
+            color:#e5e4e2;
+        }
+        .food1-ing {
+            font-family: "Nanum Pen Script", cursive;
+            font-size: 55px;
+            background: transparent;
+            border:none;
+            max-width: 500px;
+            height: 60px;
+            position: relative;
+            left: 80px;
+            bottom: 100px;
+            color: #fff;
+        }
+        .food1-img1 {
+            position: relative;
+            left: 80px;
+            top: -60px;
+            border: none;
+            border-radius: 15px;
+        }
+        .food1-img2 {
+            position: relative;
+            right: -120px;
+            top: -60px;
+            border: none;
+            border-radius: 15px;
+        }
+    }
+}
+
+.food-container2 {
+    position: absolute;
+    top: -235px;
+    left: -1400px;
+    height: 600px;
+    width: 800px;
+    background-color:#f44336;;
+    border: none;
+    border-radius: 15px;
+    
+
+    .food-contents2 {
+        
+        .foodname2 {
+            background-color: transparent;
+            border: none;
+            font-family: "Nanum Pen Script", cursive;
+            font-size: 55px;
+            position: relative;
+            right: -500px;
+            top: -30px;
+            color:#e5e4e2;
+        }
+        .food2-ing {
+            font-family: "Nanum Pen Script", cursive;
+            font-size: 55px;
+            background: transparent;
+            border:none;
+            max-width: 500px;
+            height: 60px;
+            position: relative;
+            left: 80px;
+            bottom: 100px;
+            color: #fff;
+        }
+        .food2-img1 {
+            position: relative;
+            left: 80px;
+            top: -60px;
+            border: none;
+            border-radius: 15px;
+        }
+        .food2-img2 {
+            position: relative;
+            right: -120px;
+            top: -60px;
+            border: none;
+            border-radius: 15px;
+        }
+    }
+}
+
+.food-container3 {
+    position: absolute;
+    top: -392px;
+    left: -1400px;
+    height: 700px;
+    width: 800px;
+    background-color:#f44336;
+    border: none;
+    border-radius: 15px;
+    
+
+    .food-contents3 {
+        
+        .foodname3 {
+            background-color: transparent;
+            border: none;
+            font-family: "Nanum Pen Script", cursive;
+            font-size: 55px;
+            position: relative;
+            right: -500px;
+            top: -30px;
+            color:#e5e4e2;
+        }
+        .food3-ing {
+            font-family: "Nanum Pen Script", cursive;
+            font-size: 55px;
+            background: transparent;
+            border:none;
+            max-width: 500px;
+            height: 60px;
+            position: relative;
+            left: 80px;
+            bottom: 100px;
+            color: #fff;
+        }
+        .food3-img1 {
+            position: relative;
+            left: 80px;
+            top: -60px;
+            border: none;
+            border-radius: 15px;
+        }
+        .food3-img2 {
+            position: relative;
+            right: -120px;
+            top: -60px;
+            border: none;
+            border-radius: 15px;
+        }
+    }
+}
+
+.food-container4 {
+    position: absolute;
+    top: -545px;
+    left: -1400px;
+    height: 700px;
+    width: 800px;
+    background-color:#f44336;
+    border: none;
+    border-radius: 15px;
+    
+
+    .food-contents4 {
+        
+        .foodname4 {
+            background-color: transparent;
+            border: none;
+            font-family: "Nanum Pen Script", cursive;
+            font-size: 55px;
+            position: relative;
+            right: -500px;
+            top: -30px;
+            color:#e5e4e2;
+        }
+        .food4-ing {
+            font-family: "Nanum Pen Script", cursive;
+            font-size: 55px;
+            background: transparent;
+            border:none;
+            max-width: 500px;
+            height: 60px;
+            position: relative;
+            left: 80px;
+            bottom: 100px;
+            color: #fff;
+        }
+        .food4-img1 {
+            position: relative;
+            left: 80px;
+            top: -60px;
+            border: none;
+            border-radius: 15px;
+        }
+        .food4-img2 {
+            position: relative;
+            right: -120px;
+            top: -60px;
+            border: none;
+            border-radius: 15px;
+        }
+    }
+}
+
+.food-container5 {
+    position: absolute;
+    top: -700px;
+    left: -1400px;
+    height: 700px;
+    width: 800px;
+    background-color:#f44336;
+    border: none;
+    border-radius: 15px;
+    
+
+    .food-contents5 {
+        
+        .foodname5 {
+            background-color: transparent;
+            border: none;
+            font-family: "Nanum Pen Script", cursive;
+            font-size: 55px;
+            position: relative;
+            right: -500px;
+            top: -30px;
+            color:#e5e4e2;
+        }
+        .food5-ing {
+            font-family: "Nanum Pen Script", cursive;
+            font-size: 55px;
+            background: transparent;
+            border:none;
+            max-width: 500px;
+            height: 60px;
+            position: relative;
+            left: 80px;
+            bottom: 100px;
+            color: #fff;
+        }
+        .food5-img1 {
+            position: relative;
+            left: 80px;
+            top: -60px;
+            border: none;
+            border-radius: 15px;
+        }
+        .food5-img2 {
+            position: relative;
+            right: -120px;
+            top: -60px;
+            border: none;
+            border-radius: 15px;
+        }
+    }
+}
+
 .recom-content {
     position: absolute;
     right: 750px;
@@ -77,7 +478,13 @@
     }
     
     .prof-title button {
-        color: #e5e4e2;
+        color: black;
+        border: none;
+        background:none;
+        font-size: 95px;
+        font-family: "Nanum Pen Script", cursive;
+        position: relative;
+        
     }
     
     .prof-menu button {
@@ -91,7 +498,8 @@
         font-size: 20px;
         font-weight: 600;
         color: white;
-        border-radius: 0 5px 5px 0;
+        border-radius: 15px;
+        border: none;
     }
     .prof-menu button:hover {
         right: 530px;
@@ -133,13 +541,25 @@
         width: 1100px;
         height: 900px;
 
+        .deleteBtn {
+            position: absolute;
+            right: 30px;
+            bottom: 30px;
+            font-family: "Nanum Pen Script", cursive;
+            font-size: 30px;
+            color: #e5e4e2;
+            width: 120px;
+            background-color: #f44336;
+            border: none;
+        }
+
         .title {
             position: absolute;
             right: 900px;
             top: 30px;
             color:black;
             font-family: "Nanum Pen Script", cursive;
-            font-size: 50px;
+            font-size: 70px;
             font-weight: 600;
         }
         .area {
@@ -242,7 +662,7 @@
 
         .inf-group {
             font-family: 'Nanum Pen Script', cursive;
-            font-size: 40px;
+            font-size: 50px;
             font-weight: 600;
             position: relative;
             top: 140px;
@@ -276,8 +696,10 @@
                 position: absolute;
                 border: none;
                 background: none;
-                right: 100px;
+                right: 160px;
+                font-size: 40px;
                 font-weight: 600;
+                font-family: 'Nanum Pen Script', cursive;
             }
         }
     }
@@ -332,6 +754,8 @@
                     appearance: none;
                 }
             }
+
+            
             .search-btn {
                 position: absolute;
                 top: 20px;
@@ -351,6 +775,7 @@
                     fill: #5a6674;
                 }
             }
+
             .img-search {
                 position: absolute;
                 top: 20px;
@@ -400,7 +825,8 @@
             font-size: 20px;
             font-weight: 600;
             color: white;
-            border-radius: 0 5px 5px 0;
+            border-radius: 15px;
+            border: none;
         }
         .menu button:hover {
             right: 0;

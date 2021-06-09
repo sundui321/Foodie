@@ -1,26 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "../../components/Login.scss";
 import { motion } from "framer-motion";
 import axios from 'axios';
 import swal from 'sweetalert';
 
-
-function CreateProfile(username) {
-    const [data, setData] = useState('');
-    let allergy = '';
-    let like = '';
-    let hate = '';
-    setData(username);
-    setData(allergy);
-    setData(like);
-    setData(hate);
-    axios.post('http://127.0.0.1:8000/api/profile/', data).then(
-        (response) => {
-            console.log(response);
-        }
-    )
-}
 
 class Register extends React.Component {
     
@@ -41,15 +25,15 @@ class Register extends React.Component {
     register_request = e => {
         e.preventDefault();
         console.log(this.state);
-        axios.post('http://127.0.0.1:8000/api/users/', this.state)
+        axios.post('http://13.209.208.168:8000/users/', this.state)
         .then(
             (response) => {
-                console.log(response);
                 if(response.status) {
                     swal("가입되었습니다.", "로그인화면으로 이동합니다.", "success",
                         {button: "로그인"}).then((result) => {
                             window.location.href = `/`
                         });
+                    axios.post("http://13.209.208.168:8000/profile/", this.state.username);
                 }
             }
         )

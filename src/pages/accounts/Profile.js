@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import "../../components/AppLayout.scss";
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAddressCard, faHome, faSignOutAlt, faUtensils, faEdit, faCarrot, faDrumstickBite, faPepperHot, faAppleAlt, faHamburger, faPizzaSlice, faBreadSlice, faIceCream, faFish, faStroopwafel } from "@fortawesome/free-solid-svg-icons";
 import { faLemon } from "@fortawesome/free-regular-svg-icons";
@@ -8,6 +7,7 @@ import { faLemon } from "@fortawesome/free-regular-svg-icons";
 import { motion } from "framer-motion";
 import axios from 'axios';
 import store from "store";
+import swal from "sweetalert";
 
 function Profile( {history} ) {
     
@@ -15,7 +15,7 @@ function Profile( {history} ) {
     let userID = '';
 
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/api/users/${store.get('userID')}`).then(
+        axios.get(`http://13.209.208.168:8000/users/${store.get('userID')}`).then(
             (response) => {
                 setData(response.data);
             }
@@ -32,8 +32,41 @@ function Profile( {history} ) {
         history.replace('/accounts/profile/');
     }
 
+    const homeHandle = () => {
+        history.replace("/accounts/loggedhome/")
+    }
 
-
+    const deleteHandle = () => {
+        swal("회원탈퇴하시겠습니까?", {
+            buttons: {
+                yes: {
+                    text: "예",
+                    value: "yes"
+                },
+                no: {
+                    text: "아니요",
+                    value: "no"                
+                }
+            }
+        }).then((value) => {
+            switch(value) {
+                case "yes":
+                    axios.delete(`http://13.209.208.168:8000/users/${store.get('userID')}`).then(
+                        (response) => {
+                            swal("회원정보가 삭제되었습니다.", "로그인 화면으로 이동합니다.", "success",
+                            {button: "OK"}).then((result) => {
+                                logoutHandle();
+                            });
+                        }
+                    )
+                    break;
+                case "no":
+                    break;
+                default:
+            }
+        })
+    }
+    
     return (
        <motion.div className="profile-container" 
             animate={{ 
@@ -46,7 +79,7 @@ function Profile( {history} ) {
                 <a href="/accounts/loggedhome">Foodie</a>
             </div>
             <div className="prof-menu">
-                <button className="home">
+                <button className="home" onClick={homeHandle}>
                     <FontAwesomeIcon className="icon" icon={faHome} size="lg"/>홈
                 </button>
                 <button className="reccomend">
@@ -81,7 +114,7 @@ function Profile( {history} ) {
                 </div>
                     <div className="inf-group">유저 네임: 
                         <input type="text" className="input-inf" value={data.username} contentEditable="false"/>
-                        <button type="button" className="edtBtn"><FontAwesomeIcon icon={faEdit} size="1x"/></button>
+                        <button type="button" className="edtBtn"><FontAwesomeIcon icon={faEdit} size="4x"/></button>
                     </div>
                     <div className="inf-group">비밀번호:
                         <input type="password" className="input-inf" value={data.password}/>
@@ -90,15 +123,16 @@ function Profile( {history} ) {
                         <input type="text" className="input-inf" value={data.email}/>
                     </div>
                     <div className="inf-group">알레르기 정보:
-                        <input type="text" className="input-inf" value="allergy information"/>
+                        <input type="text" className="input-inf" value=""/>
                     </div>
                     <div className="inf-group">좋아하는 재료:
-                        <input type="text" className="input-inf" value="Like"/>
+                        <input type="text" className="input-inf" value=""/>
                     </div>
                     <div className="inf-group">싫어하는 재료:
-                        <input type="text" className="input-inf" value="Hate"/>
+                        <input type="text" className="input-inf" value=""/>
                     </div>
                 </div>
+                <button type='button' className="deleteBtn" onClick={deleteHandle}>회원탈퇴</button>
             </div>
        </motion.div>
     );

@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AppLayout from "../components/AppLayout.js";
 import "../components/AppLayout.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faUsers, faUtensils } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
-import { Button } from "antd";
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import store from 'store';
 
 function Home({history}) {
+    useEffect(() => {
+        store.set('userID', -1);
+    },[])
 
     const homeHandle = () => {
         history.replace('/home');
